@@ -328,6 +328,50 @@ h3 {
     gap: 18px;
 }
 
+.feature-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 220px;
+    border-radius: 28px;
+    background: linear-gradient(180deg, rgba(255, 250, 244, 0.94) 0%, rgba(245, 233, 220, 0.88) 100%);
+}
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.feature-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card-aesthetic::before {
+    background:
+        radial-gradient(circle at top right, rgba(220, 185, 152, 0.46), transparent 30%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(156, 93, 51, 0.05));
+}
+
+.feature-card-custom::before {
+    background:
+        radial-gradient(circle at bottom left, rgba(182, 141, 108, 0.34), transparent 32%),
+        repeating-linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.08) 10px,
+            rgba(156, 93, 51, 0.035) 10px,
+            rgba(156, 93, 51, 0.035) 20px
+        );
+}
+
+.feature-card-service::before {
+    background:
+        radial-gradient(circle at center right, rgba(214, 179, 143, 0.34), transparent 30%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(111, 62, 34, 0.06));
+}
+
 .showcase-panel {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -335,8 +379,49 @@ h3 {
     padding: 30px;
 }
 
+.showcase-panel-rich {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(75, 48, 31, 0.94) 0%, rgba(122, 76, 44, 0.91) 48%, rgba(166, 111, 72, 0.88) 100%);
+    color: #fff8f1;
+}
+
+.showcase-panel-rich::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top left, rgba(255, 246, 235, 0.18), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(255, 227, 196, 0.14), transparent 26%),
+        repeating-linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(255, 255, 255, 0.025) 12px,
+            rgba(255, 255, 255, 0.01) 12px,
+            rgba(255, 255, 255, 0.01) 24px
+        );
+    pointer-events: none;
+}
+
+.showcase-panel-rich > * {
+    position: relative;
+    z-index: 1;
+}
+
+.showcase-panel-rich .eyebrow,
+.showcase-panel-rich h2 {
+    color: #fff8f1;
+}
+
 .showcase-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.showcase-panel-rich .showcase-list span {
+    background: rgba(255, 248, 239, 0.12);
+    border: 1px solid rgba(255, 247, 239, 0.16);
+    color: #fff8f1;
+    backdrop-filter: blur(8px);
 }
 
 .order-layout {
