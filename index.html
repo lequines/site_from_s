@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>МОНШЕР | Текстиль для гостиниц и объектов размещения</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
     <div class="page-glow page-glow-left"></div>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <form class="order-form" action="/order" method="post">
+                <form class="order-form" id="order-form">
                     <label>
                         <span>Имя или ФИО</span>
                         <input type="text" name="name" placeholder="Например: Иван Петров" required>
@@ -150,5 +150,11 @@
             </div>
         </section>
     </main>
+    <script>
+        document.getElementById("order-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+            alert("Форма пока работает в режиме предпросмотра. Следующим этапом подключим отправку заявок.");
+        });
+    </script>
 </body>
 </html>
