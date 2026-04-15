@@ -353,6 +353,39 @@ h3 {
     margin-bottom: 20px;
 }
 
+.section-heading-panel {
+    position: relative;
+    overflow: hidden;
+    padding: 26px 28px;
+    border-radius: 28px;
+    border: 1px solid rgba(111, 62, 34, 0.1);
+    background:
+        linear-gradient(180deg, rgba(255, 250, 244, 0.8) 0%, rgba(247, 237, 225, 0.72) 100%);
+    box-shadow: 0 18px 44px rgba(79, 49, 29, 0.08);
+}
+
+.section-heading-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right, rgba(214, 179, 143, 0.18), transparent 26%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(156, 93, 51, 0.035));
+    pointer-events: none;
+}
+
+.section-heading-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+.section-intro {
+    max-width: 760px;
+    margin: 14px 0 0;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -464,12 +497,46 @@ h3 {
 
 .info-card {
     border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 250, 244, 0.9) 0%, rgba(241, 229, 215, 0.78) 100%);
 }
 
 .order-form {
     display: grid;
     gap: 16px;
     border-radius: 28px;
+}
+
+.order-form-rich {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(160deg, rgba(77, 49, 31, 0.94) 0%, rgba(117, 72, 42, 0.92) 55%, rgba(161, 110, 73, 0.88) 100%);
+    border: 1px solid rgba(255, 247, 239, 0.08);
+}
+
+.order-form-rich::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right, rgba(255, 244, 230, 0.15), transparent 24%),
+        repeating-linear-gradient(
+            125deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(255, 255, 255, 0.025) 12px,
+            rgba(255, 255, 255, 0.01) 12px,
+            rgba(255, 255, 255, 0.01) 24px
+        );
+    pointer-events: none;
+}
+
+.order-form-rich > * {
+    position: relative;
+    z-index: 1;
+}
+
+.order-form-rich span {
+    color: #fff7ef;
 }
 
 .order-form label {
@@ -493,11 +560,39 @@ h3 {
     resize: vertical;
 }
 
+.order-form-rich input,
+.order-form-rich textarea {
+    border: 1px solid rgba(255, 248, 239, 0.16);
+    background: rgba(255, 250, 246, 0.92);
+}
+
 .contacts-card {
     display: grid;
     grid-template-columns: 0.95fr 1.05fr;
     gap: 24px;
     padding: 30px;
+}
+
+.contacts-card-rich {
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(145deg, rgba(255, 249, 242, 0.9) 0%, rgba(244, 233, 221, 0.84) 52%, rgba(231, 212, 193, 0.84) 100%);
+}
+
+.contacts-card-rich::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top left, rgba(214, 179, 143, 0.18), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(156, 93, 51, 0.08), transparent 26%);
+    pointer-events: none;
+}
+
+.contacts-card-rich > * {
+    position: relative;
+    z-index: 1;
 }
 
 .contacts-grid {
@@ -512,6 +607,12 @@ h3 {
     border: 1px solid var(--line);
     background: rgba(255, 255, 255, 0.5);
     color: var(--muted);
+}
+
+.contacts-card-rich .contacts-grid a,
+.contacts-card-rich .contacts-grid p {
+    background: rgba(255, 252, 247, 0.72);
+    box-shadow: 0 10px 28px rgba(80, 50, 26, 0.06);
 }
 
 .success-body {
