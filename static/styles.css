@@ -535,7 +535,7 @@ h3 {
     position: absolute;
     left: 18px;
     right: 18px;
-    top: 18px;
+    top: 50%;
     z-index: 1;
     padding: 14px 18px;
     border-radius: 22px;
@@ -546,6 +546,8 @@ h3 {
     font-family: Georgia, "Times New Roman", serif;
     font-size: 1.15rem;
     line-height: 1.2;
+    text-align: center;
+    transform: translateY(-50%);
     box-shadow: 0 12px 30px rgba(44, 27, 15, 0.18);
 }
 
