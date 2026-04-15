@@ -495,6 +495,82 @@ h3 {
     align-items: start;
 }
 
+.samples-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr 0.75fr;
+    gap: 18px;
+}
+
+.sample-card {
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+    border-radius: 28px;
+    border: 1px solid rgba(111, 62, 34, 0.1);
+    background: rgba(255, 248, 239, 0.8);
+    box-shadow: var(--shadow);
+}
+
+.sample-card-large {
+    grid-row: span 2;
+    min-height: 540px;
+}
+
+.sample-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sample-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(44, 27, 15, 0.04) 0%, rgba(44, 27, 15, 0.42) 100%);
+    pointer-events: none;
+}
+
+.sample-overlay,
+.sample-copy {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1;
+    padding: 18px 20px;
+    border-radius: 22px;
+    backdrop-filter: blur(10px);
+}
+
+.sample-overlay {
+    background: rgba(58, 37, 24, 0.56);
+    border: 1px solid rgba(255, 247, 239, 0.16);
+    color: #fff8f1;
+}
+
+.sample-overlay .card-label,
+.sample-overlay h3,
+.sample-overlay p {
+    color: #fff8f1;
+}
+
+.sample-copy {
+    background: rgba(255, 248, 239, 0.74);
+    border: 1px solid rgba(255, 247, 239, 0.28);
+}
+
+.sample-copy h3,
+.sample-overlay h3 {
+    margin-bottom: 10px;
+}
+
+.sample-copy p,
+.sample-overlay p {
+    margin: 0;
+    line-height: 1.55;
+}
+
 .info-card {
     border-radius: 24px;
     background: linear-gradient(180deg, rgba(255, 250, 244, 0.9) 0%, rgba(241, 229, 215, 0.78) 100%);
@@ -635,8 +711,14 @@ h3 {
     .showcase-panel,
     .order-layout,
     .contacts-card,
-    .feature-grid {
+    .feature-grid,
+    .samples-grid {
         grid-template-columns: 1fr;
+    }
+
+    .sample-card-large {
+        grid-row: auto;
+        min-height: 420px;
     }
 }
 
@@ -678,6 +760,14 @@ h3 {
     .showcase-list,
     .fabric-swatch-grid {
         grid-template-columns: 1fr;
+    }
+
+    .sample-card {
+        min-height: 280px;
+    }
+
+    .sample-card-large {
+        min-height: 320px;
     }
 
     .hero-stage {
