@@ -124,6 +124,31 @@ h3 {
     grid-template-columns: 1fr;
 }
 
+.hero-stage {
+    position: relative;
+    overflow: hidden;
+    min-height: 650px;
+    padding: 36px;
+    border-radius: 38px;
+    background:
+        linear-gradient(90deg, rgba(48, 31, 20, 0.76) 0%, rgba(48, 31, 20, 0.52) 32%, rgba(48, 31, 20, 0.18) 58%, rgba(48, 31, 20, 0.12) 100%),
+        linear-gradient(180deg, rgba(250, 240, 228, 0.18) 0%, rgba(250, 240, 228, 0.04) 100%),
+        url("images/hero-hotel-room.jpg");
+    background-size: cover;
+    background-position: center;
+    box-shadow: var(--shadow);
+}
+
+.hero-stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right, rgba(255, 250, 243, 0.34), transparent 28%),
+        linear-gradient(180deg, rgba(120, 74, 42, 0.12), rgba(120, 74, 42, 0.03));
+    pointer-events: none;
+}
+
 .hero-copy,
 .hero-card,
 .showcase-panel,
@@ -139,8 +164,12 @@ h3 {
 }
 
 .hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
     padding: 42px;
     border-radius: 36px;
+    background: rgba(255, 248, 239, 0.78);
 }
 
 .hero-card,
@@ -237,6 +266,25 @@ h3 {
 .hero-points {
     margin: 0;
     padding-left: 18px;
+}
+
+.hero-visual-note {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+    z-index: 1;
+    max-width: 330px;
+    padding: 18px 20px;
+    border-radius: 22px;
+    background: rgba(255, 248, 239, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 16px 40px rgba(44, 27, 15, 0.16);
+    color: var(--accent-dark);
+    line-height: 1.5;
+}
+
+.hero-visual-note p {
+    margin: 0;
 }
 
 .hero-card {
@@ -403,6 +451,24 @@ h3 {
     .showcase-list,
     .fabric-swatch-grid {
         grid-template-columns: 1fr;
+    }
+
+    .hero-stage {
+        min-height: auto;
+        padding: 18px;
+        background-position: 62% center;
+    }
+
+    .hero-copy {
+        max-width: none;
+    }
+
+    .hero-visual-note {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        max-width: none;
+        margin-top: 8px;
     }
 
     h1 {
