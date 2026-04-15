@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>МОНШЕР | Текстиль для гостиниц и объектов размещения</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
+
+    <header class="hero">
+        <nav class="topbar">
+            <a class="brand" href="#top">
+                <span class="brand-mark">M</span>
+                <span class="brand-text">
+                    <strong>МОНШЕР</strong>
+                    <small>Текстиль для гостиниц и объектов размещения</small>
+                </span>
+            </a>
+            <div class="topbar-links">
+                <a href="#collection">Коллекция</a>
+                <a href="#order">Заказать</a>
+                <a href="#contacts">Контакты</a>
+            </div>
+        </nav>
+
+        <section class="hero-content hero-content-single" id="top">
+            <div class="hero-copy">
+                <p class="eyebrow">Текстиль, который продает уют с первого взгляда</p>
+                <h1>Стильные ткани, домашний текстиль и готовые решения, которым доверяют с первого касания</h1>
+                <p class="hero-lead">
+                    МОНШЕР помогает оформить отель, гостевой дом, санаторий, турбазу или детский лагерь так,
+                    чтобы пространство выглядело аккуратно, чувствовалось уютно и вызывало доверие у гостей.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#order">Перейти к заказу</a>
+                    <a class="button button-secondary" href="#contacts">Связаться</a>
+                </div>
+                <ul class="hero-points">
+                    <li>Подбор фактуры, цвета и комплекта под задачу клиента</li>
+                    <li>Текстильные решения для объектов размещения с понятной коммуникацией</li>
+                    <li>Сервис, после которого проще вернуться с повторным заказом</li>
+                </ul>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <section class="section collection" id="collection">
+            <div class="section-heading">
+                <p class="eyebrow">Почему покупают здесь</p>
+                <h2>Надежный поставщик текстиля для объектов размещения</h2>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>Выверенная эстетика</h3>
+                    <p>Текстиль подобран так, чтобы усиливать интерьер, а не просто закрывать бытовую задачу.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Под заказ и в коллекциях</h3>
+                    <p>Можно подобрать готовое решение или собрать индивидуальный комплект под нужный размер и стиль.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Комфортная коммуникация</h3>
+                    <p>Покупателю не нужно разбираться в деталях одному: мы помогаем, уточняем и доводим до результата.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section showcase">
+            <div class="showcase-panel">
+                <div>
+                    <p class="eyebrow">Подходит для</p>
+                    <h2>Отелей, гостевых домов, санаториев, турбаз, детских лагерей</h2>
+                </div>
+                <div class="showcase-list">
+                    <span>Комплекты постельного белья</span>
+                    <span>Полотенца и банный текстиль</span>
+                    <span>Покрывала и пледы</span>
+                    <span>Шторы и тюль</span>
+                    <span>Текстиль для номерного фонда</span>
+                    <span>Подбор под формат объекта</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section order-section" id="order">
+            <div class="section-heading">
+                <p class="eyebrow">Форма заказа</p>
+                <h2>Оставьте заявку, и мы подберем текстиль под ваш запрос</h2>
+            </div>
+
+            <div class="order-layout">
+                <div class="order-copy">
+                    <p>
+                        Заполните форму, чтобы обсудить ассортимент, размеры, оттенки, сроки
+                        и получить предложение под ваш проект или дом.
+                    </p>
+                    <div class="info-card">
+                        <strong>Что можно указать в комментарии</strong>
+                        <p>Например: "нужны шторы в бежевых оттенках", "ищу покрывала для гостиницы", "нужен расчет под несколько комнат".</p>
+                    </div>
+                </div>
+
+                <form class="order-form" action="/order" method="post">
+                    <label>
+                        <span>Имя или ФИО</span>
+                        <input type="text" name="name" placeholder="Например: Иван Петров" required>
+                    </label>
+                    <label>
+                        <span>Номер телефона</span>
+                        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__">
+                    </label>
+                    <label>
+                        <span>Электронная почта</span>
+                        <input type="email" name="email" placeholder="example@mail.ru" required>
+                    </label>
+                    <label>
+                        <span>Комментарий</span>
+                        <textarea name="comment" rows="5" placeholder="Опишите, какой текстиль вам нужен"></textarea>
+                    </label>
+                    <button class="button button-primary button-full" type="submit">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section contacts-section" id="contacts">
+            <div class="section-heading">
+                <p class="eyebrow">Контакты</p>
+                <h2>Контакты</h2>
+            </div>
+
+            <div class="contacts-card">
+                <div class="contacts-main">
+                    <p class="card-label">ООО МОНШЕР</p>
+                    <h3>Контакты компании</h3>
+                    <p>
+                        Основные данные компании для связи и уточнения заказа.
+                        При необходимости позже сюда можно добавить отдельные мессенджеры и имя контактного лица.
+                    </p>
+                </div>
+                <div class="contacts-grid">
+                    <a href="tel:+79051067189">Телефон: +7 905 106-71-89</a>
+                    <p>Название: ООО МОНШЕР</p>
+                    <p>ИНН: 3702174941</p>
+                    <p>Адрес: Иваново, ул. Калашникова, д. 28</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
