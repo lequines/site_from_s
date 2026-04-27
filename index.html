@@ -156,7 +156,7 @@
                     </div>
                 </div>
 
-                <form class="order-form order-form-rich" id="order-form">
+                <form class="order-form order-form-rich" id="order-form" action="/order" method="post">
                     <label>
                         <span>Имя или ФИО</span>
                         <input type="text" name="name" placeholder="Например: Иван Петров" required>
@@ -206,11 +206,5 @@
             </div>
         </section>
     </main>
-    <script>
-        document.getElementById("order-form").addEventListener("submit", function (event) {
-            event.preventDefault();
-            alert("Форма пока работает в режиме предпросмотра. Следующим этапом подключим отправку заявок.");
-        });
-    </script>
 </body>
 </html>

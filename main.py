@@ -1,4 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import os
+import smtplib
+import ssl
+from email.message import EmailMessage
 from pathlib import Path
 from urllib.parse import parse_qs
 
@@ -8,6 +12,52 @@ STATIC_DIR = BASE_DIR / "static"
 INDEX_FILE = BASE_DIR / "index.html"
 HOST = "127.0.0.1"
 PORT = 8000
+SMTP_HOST = os.getenv("SMTP_HOST", "").strip()
+SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
+SMTP_USER = os.getenv("SMTP_USER", "").strip()
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "").strip()
+MAIL_FROM = os.getenv("MAIL_FROM", SMTP_USER).strip()
+MAIL_TO = os.getenv("MAIL_TO", "").strip()
+SMTP_USE_STARTTLS = os.getenv("SMTP_USE_STARTTLS", "0").strip() == "1"
+
+
+def send_order_email(name: str, phone: str, email: str, comment: str) -> None:
+    if not SMTP_HOST or not SMTP_USER or not SMTP_PASSWORD or not MAIL_TO:
+        raise RuntimeError(
+            "SMTP is not configured. Set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, and MAIL_TO."
+        )
+
+    message = EmailMessage()
+    message["Subject"] = "Новая заявка с сайта МОНШЕР"
+    message["From"] = MAIL_FROM or SMTP_USER
+    message["To"] = MAIL_TO
+    message["Reply-To"] = email
+    message.set_content(
+        "\n".join(
+            [
+                "Новая заявка с сайта МОНШЕР",
+                "",
+                f"Имя: {name or '-'}",
+                f"Телефон: {phone or '-'}",
+                f"Email: {email or '-'}",
+                f"Комментарий: {comment or '-'}",
+            ]
+        )
+    )
+
+    context = ssl.create_default_context()
+    if SMTP_USE_STARTTLS:
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=20) as server:
+            server.ehlo()
+            server.starttls(context=context)
+            server.ehlo()
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.send_message(message)
+        return
+
+    with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=context, timeout=20) as server:
+        server.login(SMTP_USER, SMTP_PASSWORD)
+        server.send_message(message)
 
 
 def render_success_page(name: str) -> str:
@@ -62,15 +112,11 @@ class LandingHandler(BaseHTTPRequestHandler):
         email = fields.get("email", [""])[0]
         comment = fields.get("comment", [""])[0]
 
-        print(
-            "New order request:",
-            {
-                "name": name,
-                "phone": phone,
-                "email": email,
-                "comment": comment,
-            },
-        )
+        try:
+            send_order_email(name, phone, email, comment)
+        except Exception as exc:
+            self.send_error(500, f"Failed to send order email: {exc}")
+            return
 
         self._send_html(render_success_page(name))
 
