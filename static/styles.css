@@ -636,6 +636,17 @@ h3 {
     padding: 30px;
 }
 
+.contacts-main {
+    display: flex;
+    align-items: center;
+}
+
+.contacts-title {
+    margin: 0;
+    font-size: clamp(2rem, 3vw, 3.2rem);
+    line-height: 1;
+}
+
 .contacts-card-rich {
     position: relative;
     overflow: hidden;
@@ -660,6 +671,10 @@ h3 {
 
 .contacts-grid {
     align-content: start;
+}
+
+.contacts-grid-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .contacts-grid a,
@@ -746,6 +761,10 @@ h3 {
 
     .showcase-list,
     .fabric-swatch-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contacts-grid-links {
         grid-template-columns: 1fr;
     }
 
