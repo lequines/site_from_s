@@ -138,7 +138,7 @@ h3 {
     border-radius: 28px;
     border: 1px solid var(--line);
     background:
-        linear-gradient(90deg, rgba(10, 16, 23, 0.62) 0%, rgba(10, 16, 23, 0.34) 45%, rgba(10, 16, 23, 0.14) 100%),
+        linear-gradient(90deg, rgba(10, 16, 23, 0.72) 0%, rgba(10, 16, 23, 0.38) 32%, rgba(10, 16, 23, 0.10) 60%, rgba(10, 16, 23, 0.02) 100%),
         url("images/123123.png") center center / cover no-repeat;
     box-shadow: var(--shadow);
 }
@@ -184,39 +184,40 @@ h3 {
 .hero-copy {
     display: grid;
     gap: 18px;
-    max-width: 720px;
-    padding: 28px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
+    max-width: 560px;
+    padding: 22px 22px 20px;
+    border-radius: 22px;
+    background: rgba(12, 18, 25, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: none;
 }
 
 .hero-copy .eyebrow {
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.74);
 }
 
 .hero-copy h1 {
     color: #fff;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
 }
 
 .hero-copy .hero-sublead {
-    max-width: 62ch;
+    max-width: 54ch;
 }
 
 .hero-copy .hero-metrics {
-    max-width: 720px;
+    max-width: 560px;
 }
 
 .hero-lead {
-    max-width: 58ch;
+    max-width: 54ch;
     font-size: 1.03rem;
     color: #fff;
 }
 
 .hero-sublead {
     margin: 0;
-    max-width: 62ch;
+    max-width: 54ch;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
 }
@@ -225,16 +226,16 @@ h3 {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
-    max-width: 720px;
+    max-width: 560px;
 }
 
 .metric-pill {
     padding: 14px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.1);
     box-shadow: none;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
 }
 
 .metric-pill strong {
@@ -281,8 +282,8 @@ h3 {
 }
 
 .button-secondary {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
     color: #fff;
 }
 
@@ -516,7 +517,7 @@ h3 {
     }
 
     .hero-copy {
-        max-width: 640px;
+        max-width: 600px;
     }
 
     .stats-grid,
@@ -570,7 +571,7 @@ h3 {
     }
 
     .hero-copy {
-        padding: 20px;
+        padding: 16px;
         max-width: none;
         border-radius: 20px;
     }
