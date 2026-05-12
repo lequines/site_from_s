@@ -378,7 +378,7 @@ h3 {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(15, 23, 33, 0.06) 0%, rgba(15, 23, 33, 0.34) 100%);
+    background: linear-gradient(180deg, rgba(15, 23, 33, 0.04) 0%, rgba(15, 23, 33, 0.28) 100%);
     pointer-events: none;
 }
 
@@ -390,8 +390,8 @@ h3 {
     z-index: 1;
     padding: 12px 14px;
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.18);
     color: #fff;
     text-align: center;
     backdrop-filter: blur(10px);
@@ -440,9 +440,9 @@ h3 {
 .contacts-card {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
-    gap: 18px;
+    gap: 14px;
     align-items: start;
-    padding: 18px;
+    padding: 16px;
     border: 1px solid var(--line);
     border-radius: 22px;
     background: rgba(255, 255, 255, 0.86);
@@ -457,15 +457,15 @@ h3 {
 .contacts-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
+    gap: 8px;
 }
 
 .contact-link {
-    min-height: 52px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 14px;
+    padding: 10px 12px;
     border: 1px solid var(--line);
     border-radius: 16px;
     background: rgba(247, 249, 248, 0.9);
@@ -487,9 +487,9 @@ h3 {
 }
 
 .contact-icon {
-    width: 18px;
-    height: 18px;
-    flex: 0 0 18px;
+    width: 17px;
+    height: 17px;
+    flex: 0 0 17px;
     fill: currentColor;
 }
 
