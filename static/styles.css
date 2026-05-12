@@ -128,11 +128,19 @@ h3 {
 }
 
 .hero-grid {
+    position: relative;
+    overflow: hidden;
     display: grid;
-    grid-template-columns: 1.08fr 0.92fr;
-    gap: 28px;
-    align-items: center;
-    padding: 12px 0 18px;
+    grid-template-columns: 1fr;
+    align-items: end;
+    min-height: 560px;
+    padding: 18px;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    background:
+        linear-gradient(90deg, rgba(10, 16, 23, 0.62) 0%, rgba(10, 16, 23, 0.34) 45%, rgba(10, 16, 23, 0.14) 100%),
+        url("images/123123.png") center center / cover no-repeat;
+    box-shadow: var(--shadow);
 }
 
 .eyebrow {
@@ -176,12 +184,41 @@ h3 {
 .hero-copy {
     display: grid;
     gap: 18px;
-    padding-right: 8px;
+    max-width: 720px;
+    padding: 28px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+}
+
+.hero-copy .eyebrow {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-copy h1 {
+    color: #fff;
+}
+
+.hero-copy .hero-sublead {
+    max-width: 62ch;
+}
+
+.hero-copy .hero-metrics {
+    max-width: 720px;
 }
 
 .hero-lead {
     max-width: 58ch;
     font-size: 1.03rem;
+    color: #fff;
+}
+
+.hero-sublead {
+    margin: 0;
+    max-width: 62ch;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
 }
 
 .hero-metrics {
@@ -193,10 +230,11 @@ h3 {
 
 .metric-pill {
     padding: 14px 16px;
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.78);
-    box-shadow: 0 10px 28px rgba(12, 19, 26, 0.04);
+    background: rgba(255, 255, 255, 0.14);
+    box-shadow: none;
+    backdrop-filter: blur(10px);
 }
 
 .metric-pill strong {
@@ -204,12 +242,12 @@ h3 {
     margin-bottom: 4px;
     font-size: 1.1rem;
     line-height: 1.1;
-    color: var(--accent);
+    color: #fff;
 }
 
 .metric-pill span {
     display: block;
-    color: var(--muted);
+    color: rgba(255, 255, 255, 0.86);
     font-size: 0.92rem;
     line-height: 1.35;
 }
@@ -237,80 +275,15 @@ h3 {
 }
 
 .button-primary {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: var(--shadow);
+    background: #fff;
+    color: var(--accent);
+    box-shadow: none;
 }
 
 .button-secondary {
-    border: 1px solid var(--line);
-    background: rgba(255, 255, 255, 0.75);
-    color: var(--accent);
-}
-
-.hero-note {
-    max-width: 52ch;
-    padding-top: 14px;
-    border-top: 1px solid var(--line);
-    font-size: 0.98rem;
-}
-
-.hero-visual {
-    display: block;
-    min-height: 540px;
-}
-
-.hero-figure {
-    position: relative;
-    overflow: hidden;
-    min-height: 540px;
-    border-radius: 24px;
-    border: 1px solid var(--line);
-    background: var(--surface);
-    box-shadow: var(--shadow);
-}
-
-.hero-figure img {
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-figure::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(15, 23, 33, 0.08) 0%, rgba(15, 23, 33, 0.2) 100%);
-    pointer-events: none;
-}
-
-.hero-figure-caption {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    z-index: 1;
-    display: grid;
-    gap: 6px;
-    max-width: 420px;
-    padding: 14px 16px;
-    border-radius: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    background: rgba(255, 255, 255, 0.16);
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
     color: #fff;
-}
-
-.hero-figure-caption span {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.08rem;
-    line-height: 1.15;
-}
-
-.hero-figure-caption p {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.45;
-    color: rgba(255, 255, 255, 0.88);
 }
 
 .section {
@@ -538,16 +511,12 @@ h3 {
 
 @media (max-width: 1080px) {
     .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        min-height: 500px;
+        padding: 16px;
     }
 
-    .hero-visual {
-        min-height: 460px;
-    }
-
-    .hero-figure {
-        min-height: 460px;
+    .hero-copy {
+        max-width: 640px;
     }
 
     .stats-grid,
@@ -584,7 +553,8 @@ h3 {
     }
 
     .hero-grid {
-        gap: 18px;
+        min-height: 430px;
+        padding: 12px;
     }
 
     .hero-metrics,
@@ -599,12 +569,15 @@ h3 {
         grid-template-columns: 1fr;
     }
 
-    .hero-visual {
-        min-height: auto;
+    .hero-copy {
+        padding: 20px;
+        max-width: none;
+        border-radius: 20px;
     }
 
-    .hero-figure {
-        min-height: 340px;
+    .hero-lead,
+    .hero-sublead {
+        max-width: none;
     }
 
     .product-card {
