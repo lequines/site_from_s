@@ -256,46 +256,61 @@ h3 {
 }
 
 .hero-visual {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 14px;
-    align-items: stretch;
+    display: block;
     min-height: 540px;
 }
 
-.visual-grid {
-    display: grid;
-    gap: 14px;
-}
-
-.visual-frame {
+.hero-figure {
     position: relative;
     overflow: hidden;
-    border-radius: 22px;
+    min-height: 540px;
+    border-radius: 24px;
     border: 1px solid var(--line);
     background: var(--surface);
     box-shadow: var(--shadow);
 }
 
-.visual-frame-large {
-    min-height: 540px;
-}
-
-.visual-frame:not(.visual-frame-large) {
-    min-height: calc(50% - 7px);
-}
-
-.visual-frame img {
+.hero-figure img {
     height: 100%;
     object-fit: cover;
 }
 
-.visual-frame::after {
+.hero-figure::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(15, 23, 33, 0.06) 0%, rgba(15, 23, 33, 0.18) 100%);
+    background: linear-gradient(180deg, rgba(15, 23, 33, 0.08) 0%, rgba(15, 23, 33, 0.2) 100%);
     pointer-events: none;
+}
+
+.hero-figure-caption {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1;
+    display: grid;
+    gap: 6px;
+    max-width: 420px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    color: #fff;
+}
+
+.hero-figure-caption span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.08rem;
+    line-height: 1.15;
+}
+
+.hero-figure-caption p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.88);
 }
 
 .section {
@@ -531,6 +546,10 @@ h3 {
         min-height: 460px;
     }
 
+    .hero-figure {
+        min-height: 460px;
+    }
+
     .stats-grid,
     .advantages-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -581,20 +600,11 @@ h3 {
     }
 
     .hero-visual {
-        grid-template-columns: 1fr;
         min-height: auto;
     }
 
-    .visual-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .visual-frame-large {
-        min-height: 360px;
-    }
-
-    .visual-frame:not(.visual-frame-large) {
-        min-height: 180px;
+    .hero-figure {
+        min-height: 340px;
     }
 
     .product-card {
