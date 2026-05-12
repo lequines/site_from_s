@@ -48,14 +48,14 @@ def send_order_email(name: str, phone: str, email: str, comment: str) -> None:
         )
 
     message = EmailMessage()
-    message["Subject"] = "Новая заявка с сайта МОНШЕР"
+    message["Subject"] = "Новая заявка с сайта по оснащению гостиниц"
     message["From"] = MAIL_FROM or SMTP_USER
     message["To"] = MAIL_TO
     message["Reply-To"] = email
     message.set_content(
         "\n".join(
             [
-                "Новая заявка с сайта МОНШЕР",
+                "Новая заявка с сайта по оснащению гостиниц",
                 "",
                 f"Имя: {name or '-'}",
                 f"Телефон: {phone or '-'}",
@@ -94,10 +94,10 @@ def render_success_page(name: str) -> str:
     <main class="success-shell">
         <section class="success-card">
             <p class="eyebrow">Заявка отправлена</p>
-            <h1>{customer_name}, спасибо за интерес к коллекции</h1>
+            <h1>{customer_name}, спасибо за интерес к оснащению объектов</h1>
             <p>
                 Мы получили вашу заявку и свяжемся с вами по указанным контактам.
-                Пока можно вернуться на главную и продолжить знакомство с ассортиментом.
+                Можно вернуться на главную и продолжить знакомство с возможностями поставки.
             </p>
             <a class="button button-primary" href="/">Вернуться на сайт</a>
         </section>

@@ -3,130 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>МОНШЕР | Оснащение отелей и объектов размещения</title>
+    <title>Оснащение гостиниц и номерного фонда</title>
     <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-    <div class="page-glow page-glow-left"></div>
-    <div class="page-glow page-glow-right"></div>
-
-    <header class="hero">
-        <nav class="topbar">
-            <a class="brand" href="#top">
-                <span class="brand-mark">M</span>
-                <span class="brand-text">
-                    <strong>МОНШЕР</strong>
-                    <small>Текстиль и оснащение для гостиниц</small>
-                </span>
-            </a>
-            <div class="topbar-links">
-                <a href="#order">Заказ</a>
-                <a href="#contacts">Контакты</a>
-            </div>
-        </nav>
-
-        <section class="hero-content hero-content-single hero-stage" id="top">
-            <div class="hero-copy">
-                <p class="eyebrow">Оснащение отелей и объектов размещения</p>
-                <h1>Комплектация гостиниц, гостевых домов и санаториев</h1>
-                <p class="hero-lead">
-                    Подбираем текстиль и оснащение под номерной фонд, санузлы и общие зоны.
-                    Аккуратная подача, понятная поставка и комплектация без лишней суеты.
-                </p>
-                <div class="hero-actions">
-                    <a class="button button-primary" href="#order">Перейти к заказу</a>
-                    <a class="button button-secondary" href="#contacts">Связаться</a>
+    <div class="page-shell">
+        <header class="hero" id="top">
+            <nav class="topbar">
+                <a class="brand" href="#top" aria-label="Главная">
+                    <span class="brand-mark">M</span>
+                    <span class="brand-text">
+                        <strong>МОНШЕР</strong>
+                        <small>Текстиль и оснащение для гостиниц</small>
+                    </span>
+                </a>
+                <div class="topbar-links">
+                    <a href="#products">Категории</a>
+                    <a href="#advantages">Преимущества</a>
+                    <a href="#contacts">Связаться</a>
                 </div>
-            </div>
-        </section>
-    </header>
+            </nav>
 
-    <main>
-        <section class="section samples-section" id="samples">
-            <div class="section-heading section-heading-panel">
-                <p class="eyebrow">Что можно подобрать</p>
-                <h2>Готовые позиции и комплекты для объектов размещения</h2>
-            </div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Комплектация гостиниц под ключ</p>
+                    <h1>Оснащение гостиниц и номерного фонда</h1>
+                    <p class="hero-lead">
+                        Комплексные поставки текстиля и продукции для гостиниц, отелей и апартаментов
+                        с контролем качества на каждом этапе производства.
+                    </p>
 
-            <div class="samples-grid">
-                <a class="sample-card sample-card-large" href="#order">
-                    <img src="static/images/06.jpg" alt="Комплектация номера">
-                    <div class="sample-title">Комплектация номера</div>
-                </a>
+                    <div class="hero-metrics" aria-label="Ключевые показатели">
+                        <div class="metric-pill">
+                            <strong>2017</strong>
+                            <span>с этого года на рынке</span>
+                        </div>
+                        <div class="metric-pill">
+                            <strong>8+</strong>
+                            <span>лет работы в B2B</span>
+                        </div>
+                        <div class="metric-pill">
+                            <strong>4</strong>
+                            <span>этапа контроля качества</span>
+                        </div>
+                        <div class="metric-pill">
+                            <strong>Под ключ</strong>
+                            <span>комплектация объектов</span>
+                        </div>
+                    </div>
 
-                <a class="sample-card" href="#order">
-                    <img src="static/images/02.jpg" alt="Полотенца">
-                    <div class="sample-title">Полотенца</div>
-                </a>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#contacts">Связаться</a>
+                        <a class="button button-secondary" href="#workflow">Как мы работаем</a>
+                    </div>
 
-                <a class="sample-card" href="#order">
-                    <img src="static/images/01.jpg" alt="Постельное белье">
-                    <div class="sample-title">Постельное белье</div>
-                </a>
+                    <p class="hero-note">
+                        Работаем с гостиницами, отелями, апартаментами и объектами размещения.
+                    </p>
+                </div>
 
-                <a class="sample-card" href="#order">
-                    <img src="static/images/03.jpg" alt="Наволочки и простыни">
-                    <div class="sample-title">Наволочки и простыни</div>
-                </a>
-
-                <a class="sample-card" href="#order">
-                    <img src="static/images/07.jpg" alt="Подушки и одеяла">
-                    <div class="sample-title">Подушки и одеяла</div>
-                </a>
-            </div>
-        </section>
-
-        <section class="section order-section" id="order">
-            <div class="section-heading section-heading-panel">
-                <p class="eyebrow">Заказ</p>
-                <h2>Оставьте заявку</h2>
-            </div>
-
-            <div class="order-layout">
-                <div class="order-copy">
-                    <div class="info-card">
-                        <strong>Что можно указать в комментарии</strong>
-                        <p>Например: объем, тип объекта, нужные позиции и любые параметры по комплектации.</p>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="visual-frame visual-frame-large">
+                        <img src="static/images/hero-hotel-room.jpg" alt="">
+                    </div>
+                    <div class="visual-grid">
+                        <div class="visual-frame">
+                            <img src="static/images/02.jpg" alt="">
+                        </div>
+                        <div class="visual-frame">
+                            <img src="static/images/07.jpg" alt="">
+                        </div>
                     </div>
                 </div>
-
-                <form class="order-form order-form-rich" id="order-form" action="/order" method="post">
-                    <label>
-                        <span>Имя или ФИО</span>
-                        <input type="text" name="name" placeholder="Например: Иван Петров" required>
-                    </label>
-                    <label>
-                        <span>Номер телефона</span>
-                        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__">
-                    </label>
-                    <label>
-                        <span>Электронная почта</span>
-                        <input type="email" name="email" placeholder="example@mail.ru" required>
-                    </label>
-                    <label>
-                        <span>Комментарий</span>
-                        <textarea name="comment" rows="5" placeholder="Опишите объект, объем и что нужно подобрать"></textarea>
-                    </label>
-                    <button class="button button-primary button-full" type="submit">Отправить заявку</button>
-                </form>
             </div>
-        </section>
+        </header>
 
-        <section class="section contacts-section" id="contacts">
-            <div class="contacts-card contacts-card-rich">
-                <div class="contacts-main">
-                    <h2 class="contacts-title">Контакты ООО МОНШЕР</h2>
+        <main>
+            <section class="section about-section" id="about">
+                <div class="section-header">
+                    <p class="eyebrow">О компании</p>
+                    <h2>Полный цикл контроля качества</h2>
+                    <p class="section-lead">
+                        Компания специализируется на оснащении гостиниц, отелей и номерного фонда.
+                        С 2017 года мы поставляем текстиль и продукцию для объектов размещения,
+                        обеспечивая контроль качества на всех этапах — от закупки материалов до упаковки и отгрузки клиенту.
+                    </p>
                 </div>
-                <div class="contacts-grid contacts-grid-links">
-                    <a href="tel:+79051067189">Телефон: +7 905 106-71-89</a>
-                    <a href="#" aria-label="VK">VK</a>
-                    <a href="#" aria-label="MAX">MAX</a>
-                    <a href="#" aria-label="Telegram">Telegram</a>
-                    <p>ИНН: 3702174941</p>
-                    <p>Адрес: Иваново, ул. Калашникова, д. 28</p>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <span class="stat-value">2017</span>
+                        <p>С 2017 года на рынке</p>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-value">4</span>
+                        <p>Контроль качества на каждом этапе</p>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-value">B2B</span>
+                        <p>Для гостиниц, отелей и апартаментов</p>
+                    </article>
+                    <article class="stat-card">
+                        <span class="stat-value">Под ключ</span>
+                        <p>Комплектация объектов под задачи бюджета</p>
+                    </article>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+
+            <section class="section" id="products">
+                <div class="section-header compact">
+                    <p class="eyebrow">Категории</p>
+                    <h2>Что поставляем</h2>
+                </div>
+
+                <div class="products-grid">
+                    <article class="product-card product-card-tall">
+                        <img src="static/images/06.jpg" alt="Комплектация номера">
+                        <div class="product-label">Комплектация номера</div>
+                    </article>
+                    <article class="product-card">
+                        <img src="static/images/02.jpg" alt="Полотенца">
+                        <div class="product-label">Полотенца</div>
+                    </article>
+                    <article class="product-card">
+                        <img src="static/images/07.jpg" alt="Подушки">
+                        <div class="product-label">Подушки</div>
+                    </article>
+                    <article class="product-card">
+                        <img src="static/images/01.jpg" alt="Одеяла">
+                        <div class="product-label">Одеяла</div>
+                    </article>
+                    <article class="product-card">
+                        <img src="static/images/04.jpg" alt="Матрасы">
+                        <div class="product-label">Матрасы</div>
+                    </article>
+                    <article class="product-card">
+                        <img src="static/images/05.jpg" alt="Наматрасники">
+                        <div class="product-label">Наматрасники</div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="advantages">
+                <div class="section-header compact">
+                    <p class="eyebrow">Почему выбирают нас</p>
+                    <h2>Сильные стороны, которые важны для B2B</h2>
+                </div>
+
+                <div class="advantages-grid">
+                    <article class="advantage-card">
+                        <span class="advantage-index">01</span>
+                        <h3>Контроль качества</h3>
+                        <p>Контролируем весь процесс — от закупки ткани до упаковки и отгрузки клиенту.</p>
+                    </article>
+                    <article class="advantage-card">
+                        <span class="advantage-index">02</span>
+                        <h3>Кратчайшие сроки производства</h3>
+                        <p>Оптимизированные процессы позволяют сократить время от запуска производства до доставки заказа.</p>
+                    </article>
+                    <article class="advantage-card">
+                        <span class="advantage-index">03</span>
+                        <h3>Работаем с 2017 года</h3>
+                        <p>Более 8 лет поставляем продукцию для гостиниц и объектов размещения.</p>
+                    </article>
+                    <article class="advantage-card">
+                        <span class="advantage-index">04</span>
+                        <h3>Комплектация под задачи объекта</h3>
+                        <p>Подбираем решения под формат и бюджет гостиницы.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section workflow-section" id="workflow">
+                <div class="section-header compact">
+                    <p class="eyebrow">Как мы работаем</p>
+                    <h2>Короткий и понятный процесс</h2>
+                </div>
+
+                <div class="workflow-grid">
+                    <article class="workflow-step">
+                        <span>01</span>
+                        <p>Получаем заявку</p>
+                    </article>
+                    <article class="workflow-step">
+                        <span>02</span>
+                        <p>Подбираем комплектацию</p>
+                    </article>
+                    <article class="workflow-step">
+                        <span>03</span>
+                        <p>Запускаем производство</p>
+                    </article>
+                    <article class="workflow-step">
+                        <span>04</span>
+                        <p>Проводим контроль качества</p>
+                    </article>
+                    <article class="workflow-step">
+                        <span>05</span>
+                        <p>Организуем доставку</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section cta-section" id="contacts">
+                <div class="cta-band">
+                    <div>
+                        <p class="eyebrow">Связаться</p>
+                        <h2>Подберем решение под ваш объект и подготовим предложение.</h2>
+                    </div>
+                    <a class="button button-primary" href="tel:+79051067189">Связаться</a>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
