@@ -486,6 +486,88 @@ h3 {
     line-height: 1.35;
 }
 
+.site-footer {
+    margin-top: 24px;
+    padding: 24px 0 20px;
+    border-top: 1px solid rgba(23, 33, 43, 0.08);
+    background: linear-gradient(180deg, rgba(15, 21, 30, 0.96) 0%, rgba(12, 18, 25, 0.98) 100%);
+    color: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(10px);
+}
+
+.site-footer-inner {
+    width: min(1240px, calc(100% - 32px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.site-footer-brand {
+    display: grid;
+    gap: 10px;
+}
+
+.site-footer-brand .eyebrow {
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.site-footer-brand h2 {
+    font-size: clamp(1.25rem, 2vw, 1.8rem);
+    line-height: 1.12;
+    color: #fff;
+    max-width: 18ch;
+}
+
+.site-footer-brand p {
+    margin: 0;
+    max-width: 56ch;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer-contacts {
+    display: grid;
+    gap: 10px;
+    justify-items: start;
+    padding-top: 2px;
+}
+
+.site-footer-title {
+    margin: 0 0 2px;
+    color: rgba(255, 255, 255, 0.62);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+}
+
+.site-footer-contacts a,
+.site-footer-contacts span {
+    color: #fff;
+    line-height: 1.4;
+}
+
+.site-footer-contacts a {
+    transition: color 0.18s ease, opacity 0.18s ease;
+}
+
+.site-footer-contacts a:hover {
+    color: #ffffff;
+    opacity: 0.84;
+}
+
+.site-footer-bottom {
+    width: min(1240px, calc(100% - 32px));
+    margin: 18px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
 .success-body {
     min-height: 100vh;
     display: grid;
@@ -530,6 +612,10 @@ h3 {
     }
 
     .contacts-card {
+        grid-template-columns: 1fr;
+    }
+
+    .site-footer-inner {
         grid-template-columns: 1fr;
     }
 }
@@ -587,6 +673,25 @@ h3 {
 
     .contacts-card {
         padding: 16px;
+    }
+
+    .site-footer {
+        margin-top: 18px;
+        padding: 20px 0 18px;
+    }
+
+    .site-footer-inner,
+    .site-footer-bottom {
+        width: min(100% - 20px, 1240px);
+    }
+
+    .site-footer-bottom {
+        margin-top: 16px;
+        padding-top: 16px;
+    }
+
+    .site-footer-brand h2 {
+        max-width: none;
     }
 
     .success-card {
