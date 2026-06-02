@@ -75,24 +75,6 @@
                     </p>
                 </div>
 
-                <div class="stats-grid">
-                    <article class="stat-card">
-                        <span class="stat-value">2017</span>
-                        <p>С 2017 года на рынке</p>
-                    </article>
-                    <article class="stat-card">
-                        <span class="stat-value">4</span>
-                        <p>Контроль качества на каждом этапе</p>
-                    </article>
-                    <article class="stat-card">
-                        <span class="stat-value">8+</span>
-                        <p>Лет поставок для гостиниц и отелей</p>
-                    </article>
-                    <article class="stat-card">
-                        <span class="stat-value">Номерной фонд</span>
-                        <p>Комплектация объектов по задаче</p>
-                    </article>
-                </div>
             </section>
 
             <section class="section" id="products">
@@ -102,30 +84,30 @@
                 </div>
 
                 <div class="products-grid">
-                    <article class="product-card product-card-tall">
-                        <img src="static/images/06.jpg" alt="Комплектация номера">
-                        <div class="product-label">Комплектация номера</div>
-                    </article>
-                    <article class="product-card">
-                        <img src="static/images/02.jpg" alt="Полотенца">
-                        <div class="product-label">Полотенца</div>
-                    </article>
-                    <article class="product-card">
-                        <img src="static/images/07.jpg" alt="Подушки">
-                        <div class="product-label">Подушки</div>
-                    </article>
-                    <article class="product-card">
-                        <img src="static/images/01.jpg" alt="Одеяла">
-                        <div class="product-label">Одеяла</div>
-                    </article>
-                    <article class="product-card">
-                        <img src="static/images/04.jpg" alt="Матрасы">
-                        <div class="product-label">Матрасы</div>
-                    </article>
-                    <article class="product-card">
-                        <img src="static/images/05.jpg" alt="Наматрасники">
-                        <div class="product-label">Наматрасники</div>
-                    </article>
+                    <button class="product-card" type="button" data-order-source="Комплектация номера" aria-label="Оставить заявку: Комплектация номера">
+                        <img src="static/images/11.jpg" alt="Комплектация номера">
+                        <span class="product-label">Комплектация номера</span>
+                    </button>
+                    <button class="product-card" type="button" data-order-source="Постельное бельё" aria-label="Оставить заявку: Постельное бельё">
+                        <img src="static/images/12.JPG" alt="Постельное бельё">
+                        <span class="product-label">Постельное бельё</span>
+                    </button>
+                    <button class="product-card" type="button" data-order-source="Полотенца" aria-label="Оставить заявку: Полотенца">
+                        <img src="static/images/13.JPG" alt="Полотенца">
+                        <span class="product-label">Полотенца</span>
+                    </button>
+                    <button class="product-card" type="button" data-order-source="Подушки и одеяла" aria-label="Оставить заявку: Подушки и одеяла">
+                        <img src="static/images/14.JPG" alt="Подушки и одеяла">
+                        <span class="product-label">Подушки и одеяла</span>
+                    </button>
+                    <button class="product-card" type="button" data-order-source="Матрасы и наматрасники" aria-label="Оставить заявку: Матрасы и наматрасники">
+                        <img src="static/images/15.JPG" alt="Матрасы и наматрасники">
+                        <span class="product-label">Матрасы и наматрасники</span>
+                    </button>
+                    <button class="product-card" type="button" data-order-source="Халаты" aria-label="Оставить заявку: Халаты">
+                        <img src="static/images/16.jpg" alt="Халаты">
+                        <span class="product-label">Халаты</span>
+                    </button>
                 </div>
             </section>
 
@@ -245,5 +227,38 @@
             <span>© 2026 — Все права защищены</span>
         </div>
     </footer>
+
+    <div class="order-modal" data-order-modal hidden>
+        <div class="order-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="order-modal-title">
+            <button class="order-modal-close" type="button" data-modal-close aria-label="Закрыть окно заявки">×</button>
+            <form class="order-form" data-order-form novalidate>
+                <input type="hidden" name="source" value="Форма заявки">
+                <div class="order-form-header">
+                    <p class="eyebrow">Заявка</p>
+                    <h2 id="order-modal-title">Оставьте заявку и мы подготовим коммерческое предложение</h2>
+                </div>
+
+                <label class="form-field">
+                    <span>Телефон *</span>
+                    <input type="tel" name="phone" placeholder="+7 900 000-00-00" autocomplete="tel" inputmode="tel" required>
+                </label>
+
+                <label class="form-field">
+                    <span>E-mail</span>
+                    <input type="email" name="email" placeholder="name@example.com" autocomplete="email">
+                </label>
+
+                <label class="form-field">
+                    <span>Пожелания / комментарий</span>
+                    <textarea name="comment" rows="4" placeholder="Расскажите, что нужно укомплектовать"></textarea>
+                </label>
+
+                <button class="button order-submit" type="submit">Отправить заявку</button>
+                <p class="order-form-note">Наш менеджер свяжется с вами для уточнения деталей</p>
+                <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+    <script src="static/app.js"></script>
 </body>
 </html>
