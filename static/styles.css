@@ -263,9 +263,12 @@ h3 {
     min-height: 48px;
     padding: 0 18px;
     border-radius: 999px;
+    border: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    font: inherit;
     font-weight: 600;
     transition: transform 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
 }
@@ -472,7 +475,7 @@ h3 {
 
 .site-footer {
     margin-top: 24px;
-    padding: 24px 0 20px;
+    padding: 14px 0;
     border-top: 1px solid rgba(23, 33, 43, 0.08);
     background: linear-gradient(180deg, rgba(15, 21, 30, 0.96) 0%, rgba(12, 18, 25, 0.98) 100%);
     color: rgba(255, 255, 255, 0.86);
@@ -482,74 +485,16 @@ h3 {
 .site-footer-inner {
     width: min(1240px, calc(100% - 32px));
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
-    gap: 20px;
-    align-items: start;
+    text-align: center;
 }
 
-.site-footer-brand {
-    display: grid;
-    gap: 10px;
-}
-
-.site-footer-brand .eyebrow {
-    margin-bottom: 0;
-    color: rgba(255, 255, 255, 0.62);
-}
-
-.site-footer-brand h2 {
-    font-size: clamp(1.25rem, 2vw, 1.8rem);
-    line-height: 1.12;
-    color: #fff;
-    max-width: 18ch;
-}
-
-.site-footer-brand p {
-    margin: 0;
-    max-width: 56ch;
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.72);
-}
-
-.site-footer-contacts {
-    display: grid;
-    gap: 10px;
-    justify-items: start;
-    padding-top: 2px;
-}
-
-.site-footer-title {
-    margin: 0 0 2px;
-    color: rgba(255, 255, 255, 0.62);
+.site-footer-name {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.72rem;
-}
-
-.site-footer-contacts a,
-.site-footer-contacts span {
-    color: #fff;
-    line-height: 1.4;
-}
-
-.site-footer-contacts a {
-    transition: color 0.18s ease, opacity 0.18s ease;
-}
-
-.site-footer-contacts a:hover {
-    color: #ffffff;
-    opacity: 0.84;
-}
-
-.site-footer-bottom {
-    width: min(1240px, calc(100% - 32px));
-    margin: 18px auto 0;
-    padding-top: 18px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.92rem;
-    line-height: 1.4;
 }
 
 .success-body {
@@ -824,21 +769,11 @@ body.modal-open {
 
     .site-footer {
         margin-top: 18px;
-        padding: 20px 0 18px;
+        padding: 14px 0;
     }
 
-    .site-footer-inner,
-    .site-footer-bottom {
+    .site-footer-inner {
         width: min(100% - 20px, 1240px);
-    }
-
-    .site-footer-bottom {
-        margin-top: 16px;
-        padding-top: 16px;
-    }
-
-    .site-footer-brand h2 {
-        max-width: none;
     }
 
     .success-card {
