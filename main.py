@@ -120,7 +120,11 @@ def format_order_message(order: dict) -> str:
     )
 
 
+_LAST_WORKING_PROXY = None
+
+
 def send_order_to_telegram(order: dict) -> None:
+    global _LAST_WORKING_PROXY
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
         raise RuntimeError("Telegram is not configured. Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID.")
 
@@ -132,21 +136,63 @@ def send_order_to_telegram(order: dict) -> None:
         },
         ensure_ascii=False,
     ).encode("utf-8")
-    request = urllib.request.Request(
-        api_url,
-        data=payload,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
 
+    def try_send(proxy_url=None, timeout=5) -> bool:
+        if proxy_url:
+            proxy_handler = urllib.request.ProxyHandler({'https': f"http://{proxy_url}"})
+        else:
+            proxy_handler = urllib.request.ProxyHandler({})
+
+        import ssl
+        context = ssl._create_unverified_context()
+        https_handler = urllib.request.HTTPSHandler(context=context)
+        opener = urllib.request.build_opener(proxy_handler, https_handler)
+
+        req = urllib.request.Request(
+            api_url,
+            data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        try:
+            with opener.open(req, timeout=timeout) as response:
+                result = json.loads(response.read().decode("utf-8"))
+                if result.get("ok"):
+                    return True
+        except Exception:
+            pass
+        return False
+
+    # 1. Try direct connection first (short timeout)
+    if try_send(timeout=3):
+        return
+
+    # 2. Try the last working proxy if cached
+    if _LAST_WORKING_PROXY and try_send(_LAST_WORKING_PROXY, timeout=5):
+        return
+
+    # 3. Fetch fresh proxies from Proxyscrape
+    proxies = []
     try:
-        with urllib.request.urlopen(request, timeout=15) as response:
-            result = json.loads(response.read().decode("utf-8"))
-    except urllib.error.URLError as exc:
-        raise RuntimeError("Failed to send order to Telegram.") from exc
+        import ssl
+        ctx = ssl._create_unverified_context()
+        proxy_list_url = "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=1500&country=all&ssl=yes&anonymity=anonymous"
+        req = urllib.request.Request(proxy_list_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, context=ctx, timeout=8) as r:
+            proxies = r.read().decode('utf-8', errors='ignore').strip().split()
+    except Exception:
+        pass
 
-    if not result.get("ok"):
-        raise RuntimeError("Telegram rejected the order message.")
+    # 4. Try the fetched proxies
+    for proxy in proxies:
+        proxy = proxy.strip()
+        if not proxy:
+            continue
+        if try_send(proxy, timeout=5):
+            _LAST_WORKING_PROXY = proxy
+            return
+
+    raise RuntimeError("Failed to send order to Telegram.")
 
 
 def send_optional_order_email(order: dict) -> None:
@@ -227,11 +273,18 @@ class LandingHandler(BaseHTTPRequestHandler):
             raw_body = self.rfile.read(content_length)
             payload = parse_order_payload(self.headers, raw_body)
             order = validate_order(payload)
-            send_order_to_telegram(order)
+            email_sent = False
             try:
                 send_optional_order_email(order)
+                email_sent = True
             except Exception:
                 pass
+
+            try:
+                send_order_to_telegram(order)
+            except Exception as tg_exc:
+                if not email_sent:
+                    raise tg_exc
         except ValueError as exc:
             self._send_json({"ok": False, "error": str(exc)}, status=400)
             return
