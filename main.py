@@ -1,4 +1,4 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import mimetypes
 import os
@@ -245,6 +245,8 @@ def render_success_page() -> str:
 
 
 class LandingHandler(BaseHTTPRequestHandler):
+    timeout = 10.0
+
     def do_GET(self) -> None:
         request_path = urlparse(self.path).path
 
@@ -342,7 +344,7 @@ class LandingHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    server = HTTPServer((HOST, PORT), LandingHandler)
+    server = ThreadingHTTPServer((HOST, PORT), LandingHandler)
     print(f"Server started at http://{HOST}:{PORT}")
     try:
         server.serve_forever()
