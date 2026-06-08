@@ -129,15 +129,13 @@ def send_order_to_telegram(order: dict) -> None:
         raise RuntimeError("Telegram is not configured. Set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID.")
 
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
-    payload = json.dumps(
-        {
-            "chat_id": TELEGRAM_CHAT_ID,
-            "text": format_order_message(order),
-        },
-        ensure_ascii=False,
-    ).encode("utf-8")
+    
+    # Split by comma to support multiple chat IDs
+    chat_ids = [cid.strip() for cid in TELEGRAM_CHAT_ID.split(",") if cid.strip()]
+    if not chat_ids:
+        return
 
-    def try_send(proxy_url=None, timeout=5) -> bool:
+    def try_send(chat_id, proxy_url=None, timeout=5) -> bool:
         if proxy_url:
             proxy_handler = urllib.request.ProxyHandler({'https': f"http://{proxy_url}"})
         else:
@@ -147,6 +145,14 @@ def send_order_to_telegram(order: dict) -> None:
         context = ssl._create_unverified_context()
         https_handler = urllib.request.HTTPSHandler(context=context)
         opener = urllib.request.build_opener(proxy_handler, https_handler)
+
+        payload = json.dumps(
+            {
+                "chat_id": chat_id,
+                "text": format_order_message(order),
+            },
+            ensure_ascii=False,
+        ).encode("utf-8")
 
         req = urllib.request.Request(
             api_url,
@@ -159,16 +165,32 @@ def send_order_to_telegram(order: dict) -> None:
                 result = json.loads(response.read().decode("utf-8"))
                 if result.get("ok"):
                     return True
+        except urllib.error.HTTPError as e:
+            try:
+                # If we get a response from Telegram API indicating the chat_id was wrong/blocked,
+                # the proxy connection itself was successful!
+                res = json.loads(e.read().decode("utf-8"))
+                if not res.get("ok") and "description" in res:
+                    return True
+            except Exception:
+                pass
         except Exception:
             pass
         return False
 
-    # 1. Try direct connection first (short timeout)
-    if try_send(timeout=3):
+    def try_send_to_all(proxy_url=None, timeout=5) -> bool:
+        success_count = 0
+        for chat_id in chat_ids:
+            if try_send(chat_id, proxy_url, timeout):
+                success_count += 1
+        return success_count == len(chat_ids)
+
+    # 1. Try direct connection first
+    if try_send_to_all(timeout=3):
         return
 
     # 2. Try the last working proxy if cached
-    if _LAST_WORKING_PROXY and try_send(_LAST_WORKING_PROXY, timeout=5):
+    if _LAST_WORKING_PROXY and try_send_to_all(_LAST_WORKING_PROXY, timeout=5):
         return
 
     # 3. Fetch fresh proxies from Proxyscrape
@@ -188,7 +210,7 @@ def send_order_to_telegram(order: dict) -> None:
         proxy = proxy.strip()
         if not proxy:
             continue
-        if try_send(proxy, timeout=5):
+        if try_send_to_all(proxy, timeout=5):
             _LAST_WORKING_PROXY = proxy
             return
 
