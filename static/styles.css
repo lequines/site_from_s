@@ -139,7 +139,7 @@ h3 {
     border: 1px solid var(--line);
     background:
         linear-gradient(90deg, rgba(10, 16, 23, 0.72) 0%, rgba(10, 16, 23, 0.38) 32%, rgba(10, 16, 23, 0.10) 60%, rgba(10, 16, 23, 0.02) 100%),
-        url("images/matrac.jpg") center center / cover no-repeat;
+        url("images/hero-bedroom.png") center center / cover no-repeat;
     box-shadow: var(--shadow);
 }
 
