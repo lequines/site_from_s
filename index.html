@@ -203,7 +203,16 @@
 
     <footer class="site-footer">
         <div class="site-footer-inner">
-            <span class="site-footer-name">МОНШЕР — оснащение гостиниц</span>
+            <div class="site-footer-brand">
+                <span class="site-footer-name">МОНШЕР — оснащение гостиниц</span>
+                <p class="site-footer-requisites">ООО «МОНШЕР» | ОГРН 1173702013824 | ИНН 3702174941</p>
+            </div>
+            <div class="site-footer-links">
+                <a href="/privacy" target="_blank" class="footer-link">Политика конфиденциальности</a>
+            </div>
+            <div class="site-footer-disclaimer">
+                <small>Информация на сайте носит ознакомительный характер и не является публичной офертой, определяемой положениями Статьи 437 ГК РФ.</small>
+            </div>
         </div>
     </footer>
 
@@ -233,6 +242,10 @@
                 </label>
 
                 <button class="button order-submit" type="submit">Отправить заявку</button>
+                <label class="form-checkbox-field">
+                    <input type="checkbox" name="privacy_agree" required>
+                    <span>Даю согласие на обработку персональных данных в соответствии с <a href="/privacy" target="_blank">Политикой конфиденциальности</a></span>
+                </label>
                 <p class="order-form-note">Наш менеджер свяжется с вами для уточнения деталей</p>
                 <p class="form-status" data-form-status aria-live="polite"></p>
             </form>

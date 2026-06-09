@@ -91,6 +91,13 @@
             return;
         }
 
+        const privacyCheckbox = form.querySelector('[name="privacy_agree"]');
+        if (privacyCheckbox && !privacyCheckbox.checked) {
+            setStatus("error", "Необходимо дать согласие на обработку персональных данных.");
+            privacyCheckbox.focus();
+            return;
+        }
+
         submitButton.disabled = true;
 
         try {

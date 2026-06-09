@@ -276,6 +276,12 @@ class LandingHandler(BaseHTTPRequestHandler):
             self._send_html(INDEX_FILE.read_text(encoding="utf-8"))
             return
 
+        if request_path in ("/privacy", "/privacy/"):
+            privacy_file = BASE_DIR / "privacy.html"
+            if privacy_file.is_file():
+                self._send_html(privacy_file.read_text(encoding="utf-8"))
+                return
+
         if request_path.startswith("/static/"):
             self._send_static_file(request_path)
             return

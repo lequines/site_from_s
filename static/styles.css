@@ -804,3 +804,69 @@ body.modal-open {
         animation-iteration-count: 1 !important;
     }
 }
+
+.form-checkbox-field {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.4;
+    text-align: left;
+}
+
+.form-checkbox-field input[type="checkbox"] {
+    margin: 2px 0 0 0;
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    accent-color: var(--accent);
+}
+
+.form-checkbox-field a {
+    color: var(--accent);
+    text-decoration: underline;
+    transition: color 0.18s ease;
+}
+
+.form-checkbox-field a:hover {
+    color: var(--text);
+}
+
+.site-footer-brand {
+    margin-bottom: 12px;
+}
+
+.site-footer-requisites {
+    margin: 6px 0 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.site-footer-links {
+    margin-bottom: 16px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    transition: color 0.18s ease;
+}
+
+.footer-link:hover {
+    color: #fff;
+}
+
+.site-footer-disclaimer {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 12px;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 12px auto 0;
+}
